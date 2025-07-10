@@ -1,0 +1,17 @@
+tunnel to jmp
+ssh -MS /tmp/jmp student@10.50.12.103
+
+tunnel to the .100
+ssh -S /tmp/jmp t1 -O forward -L 8779:192.168.28.100:2222
+
+new master socket using the www-data
+ssh -MS /tmp/jmp2 www-data@127.0.0.1 -p 8779
+
+forward tunnel 
+ssh -S /tmp/jmp2 jmmpi -O forward -L 8778:192.168.150.253:3201
+
+localhost connection
+ssh www-data@localhost -p 8779
+
+intra net tunnel make sure you have the ssh 
+ssh -i /home/student/skey -MS /tmp/jmp2 comrade@localhost -p 8778
